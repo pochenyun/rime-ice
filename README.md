@@ -14,6 +14,8 @@
 
 [常见问题](https://github.com/iDvel/rime-ice/issues/133)
 
+[更新日志](./others/CHANGELOG.md)
+
 <br>
 
 ## 基本套路
@@ -30,6 +32,7 @@
     -   [长词优先](https://github.com/tumuyan/rime-melt/blob/master/lua/melt.lua)
     -   [Unicode](https://github.com/shewer/librime-lua-script/blob/main/lua/component/unicode.lua)
     -   [数字、人民币大写](https://wb98.gitee.io/)
+    -   常见错音错字提示
     -   所有标点符号直接上屏，/ 模式改为 v 模式，/ 直接上屏
     -   增加了许多拼音纠错
 - 简体字表、词库
@@ -66,17 +69,21 @@
 
 ## 使用说明
 
+⚠️ 单独使用词库注意事项：`rime_ice.dict.yaml` 下面包含了大写字母，这和配置有些许绑定，可以直接删除，详细说明：[#356](https://github.com/iDvel/rime-ice/issues/356)
+
 建议备份原先配置，清空配置目录。
+
+配置目录为小狼毫的 `%APPDATA%\Rime`，鼠须管的 `~/Library/Rime`，可通过右键菜单栏图标打开。
 
 ### 手动安装
 
-将仓库所有文件复制粘贴进去就好了。
+将仓库所有文件复制粘贴到配置目录，重新部署。
 
 更新词库，手动覆盖 `cn_dicts` `en_dcits` `opencc` 三个文件夹。
 
 ### 东风破 [plum](https://github.com/rime/plum)
 
-所有配方（`others/recipes/*.recipe.yaml`）只是简单地更新覆盖文件，适合更新词库时使用。后四个配方只是更新词库文件，并不更新 `rime_ice.dict.yaml` 和 `melt_eng.dict.yaml`，因为用户可能会挂载其他词库。如果更新后部署时报错，可能是增、删、改了文件，需要检查上面两个文件和词库的对应关系。
+所有配方（`others/recipes/*.recipe.yaml`）只是简单地更新覆盖文件，适合更新词库时使用。后四个配方只是更新词库文件，并不更新 `rime_ice.dict.yaml` 和 `melt_eng.dict.yaml`，因为用户可能会挂载其他词库。如果更新后部署时报错，可能是增、删、改了文件名，需要检查上面两个文件和词库的对应关系。
 
 安装或更新：全部文件
 
@@ -161,11 +168,17 @@ patch:
 
 感谢 [@Huandeep](https://github.com/Huandeep) 整理的多个词库。
 
+感谢 [@Mirtle](https://github.com/mirtlecn) 完善的多个功能。
+
 感谢所有贡献者。
 
 搜狗转 Rime：[lewangdev/scel2txt](https://github.com/lewangdev/scel2txt)
 
-大量参考[校对网](http://www.jiaodui.com/bbs/)。
+大量参考：
+
+- [校对标准论坛](http://www.jiaodui.com/bbs/)
+- [汉典](https://www.zdic.net/)
+- [成语典](https://dict.idioms.moe.edu.tw/)
 
 Thanks to JetBrains for the OSS development license.
 
