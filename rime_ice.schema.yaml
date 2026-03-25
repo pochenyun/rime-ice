@@ -441,3 +441,19 @@ speller:
     - derive/(.+)ong$/$1on/ # lon → long
     - derive/([tl])eng$/$1en/ # ten → teng
     - derive/([qwrtypsdfghjklzxcbnm])([aeio])ng$/$1ng/ # lng → lang、leng、ling、long
+
+__include: octagram   #启用语法模型
+#语法模型
+octagram:
+  __patch:
+    grammar:
+      language: ai/wanxiang-lts-zh-hans.gram
+      collocation_max_length: 7
+      collocation_min_length: 2
+      collocation_penalty: -10
+      non_collocation_penalty: -20
+      weak_collocation_penalty: -35
+      rear_penalty: -12
+    translator/contextual_suggestions: false
+    translator/max_homophones: 5
+    translator/max_homographs: 5
